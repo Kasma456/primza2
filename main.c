@@ -12,7 +12,6 @@
 
 
 
-
 int main(void){
 
     int input = 0, *allnumbers_array, *prime_array, end = 0, count_of_prime = 0;
@@ -21,18 +20,10 @@ while(end != 1) {
     if (inputcheck(&input) != 1) {
 
         allnumbers_array = (int *) malloc(input * sizeof(int));
-        //prime_array = (int *) malloc(HUNDERT * sizeof(int));
 
         if (allnumbers_array != NULL) {
 
             printf("\nSpeicher wurde erfolgreich für allnumbers_array reserviert.");
-
-        } else {
-            printf("\nKein Speicher reserviert.");
-        }
-        if (prime_array != NULL) {
-
-            printf("\nSpeicher wurde erfolgreich für prime_array reserviert.");
 
         } else {
             printf("\nKein Speicher reserviert.");
@@ -49,7 +40,6 @@ while(end != 1) {
         printf("\nProgramm wurde abgebrochen!\n");
         end = 1;
     }
-
 
 }
 
