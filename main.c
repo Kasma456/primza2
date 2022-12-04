@@ -21,7 +21,7 @@ while(end != 1) {
     if (inputcheck(&input) != 1) {
 
         allnumbers_array = (int *) malloc(input * sizeof(int));
-        prime_array = (int *) malloc(HUNDERT * sizeof(int));
+        //prime_array = (int *) malloc(HUNDERT * sizeof(int));
 
         if (allnumbers_array != NULL) {
 
@@ -38,7 +38,8 @@ while(end != 1) {
             printf("\nKein Speicher reserviert.");
         }
 
-        count_of_prime = findprime(input, allnumbers_array, prime_array);
+        prime_array = findprime(input, allnumbers_array, &count_of_prime);
+
         output(prime_array,count_of_prime);
 
         free(allnumbers_array);

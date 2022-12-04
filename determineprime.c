@@ -7,9 +7,21 @@
 #include "stdlib.h"
 
 
-int findprime(int input, int *allnumbers_array, int *prime_array) {
+int *findprime(int input, int *allnumbers_array, int *counter) {
 
-    int  m = 2, n = 0, counter = 0, h = 1;
+    int  m = 2, h = 1, *prime_array;
+
+    prime_array = (int *) malloc(100 * sizeof(int));
+
+    if (prime_array != NULL) {
+
+        printf("\nSpeicher wurde erfolgreich für prime_array reserviert.");
+
+    } else {
+        printf("\nKein Speicher reserviert.");
+    }
+
+
 
     for (int i = 1; i <= input; ++i) {
 
@@ -39,7 +51,7 @@ int findprime(int input, int *allnumbers_array, int *prime_array) {
         for (int i = 1; i < input ; i++) {
             if(allnumbers_array[i] != 0){
                 if(h >= 100){
-                    prime_array = (int *)realloc(prime_array, h+1); // Bei Bedarf wird der Speicherplatz des Arrays erweitert
+                    prime_array = (int *)realloc(prime_array, (h+1) *sizeof(int)); // Bei Bedarf wird der Speicherplatz des Arrays erweitert
                     if(prime_array != NULL){
                         printf("\nSpeicher wurde erweitert"); //Bestätigung, dass Speicher erfolgreich erweitert wurde
                     } else{
@@ -47,8 +59,8 @@ int findprime(int input, int *allnumbers_array, int *prime_array) {
                     }
                 }
                 prime_array[h] = allnumbers_array[i];
-                //printf("\nprime_array(determineprime)[%d] = %d", h,prime_array[h]); // Werden die Zahlen richtig in prime array geschrieben? -> JA!
-                //n++;
+                printf("\nprime_array(determineprime)[%d] = %d", h,prime_array[h]); // Werden die Zahlen richtig in prime array geschrieben? -> JA!
+                printf("\nprime_arrayTEST(determineprime)[78] = %d",prime_array[78]);
                 h++;
 
             }
@@ -56,8 +68,8 @@ int findprime(int input, int *allnumbers_array, int *prime_array) {
         }
 
 
-        counter = h;
+        *counter = h;
 
 
-    return(counter);
+    return(prime_array);
 }
